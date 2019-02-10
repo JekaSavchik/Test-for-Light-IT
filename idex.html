@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        .conteiner {
+            position: relative;
+            display: block;
+            margin-top: 5%;
+            margin-left: 10%
+        }
+        span{
+            font-size: 20px;
+        }
+    </style>
+    <title>Test "Cristmas Tree"</title>
+</head>
+
+<body>
+    <div class="conteiner">
+        <h1>
+            Задание
+        </h1>
+        <img src="task.jpg" alt="task">
+        <br>
+        <span> Для просмотра решения перейдите в консоль</span>
+    </div>
+    <script>
+        var rows = getRand(20, 2);
+        var columns = 2 * (rows - 1) + 1;
+        var line;
+        var rand;
+        for (var i = 0; i < rows; i++) {
+            line = '';
+            var crisTreeWidth = 2 * i + 1; // ширина Ёлки (колличество * в строке) текущем ряду
+            var spase = (columns - crisTreeWidth) / 2; // колличество пробелов с одной стороны
+            rand = getRand(spase + crisTreeWidth, spase + 1); // рассположение "О"
+            for (let j = 0; j < columns; j++) {
+                if ((i + 1) % 2 === 0 && j + 1 === rand)
+                    line += '0';
+                else if (j < spase || j >= spase + crisTreeWidth)
+                    line += '_'
+                else
+                    line += '*';
+            }
+            console.log(line);
+        }
+
+        function getRand(max, min) {
+            return Math.floor(Math.random() * (max - min + 1) + min)
+        }
+    </script>
+</body>
+
+</html>
